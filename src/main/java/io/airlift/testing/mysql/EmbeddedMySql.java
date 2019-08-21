@@ -32,6 +32,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.List;
+import java.util.TimeZone;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.atomic.AtomicBoolean;
 
@@ -56,7 +57,7 @@ final class EmbeddedMySql
 {
     private static final Logger log = Logger.get(EmbeddedMySql.class);
 
-    private static final String JDBC_FORMAT = "jdbc:mysql://localhost:%s/%s?user=%s&useSSL=false";
+    private static final String JDBC_FORMAT = "jdbc:mysql://localhost:%s/%s?user=%s&useSSL=false&serverTimezone=" + TimeZone.getDefault().getID();
 
     private static final Duration STARTUP_WAIT = new Duration(10, SECONDS);
     private static final Duration SHUTDOWN_WAIT = new Duration(10, SECONDS);

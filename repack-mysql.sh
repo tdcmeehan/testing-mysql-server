@@ -2,11 +2,11 @@
 
 set -eu
 
-VERSION=8.0.12
+VERSION=8.0.15
 BASEURL="https://dev.mysql.com/get/Downloads/MySQL-8.0"
 
 LINUX_BASE=mysql-$VERSION-linux-glibc2.12-x86_64
-OSX_BASE=mysql-$VERSION-macos10.13-x86_64
+OSX_BASE=mysql-$VERSION-macos10.14-x86_64
 
 TAR=tar
 command -v gtar >/dev/null && TAR=gtar
@@ -22,12 +22,12 @@ fi
 STRIP=strip
 command -v gstrip >/dev/null && STRIP=gstrip
 
-if ! $STRIP --version | grep -q "GNU strip"
-then
-    echo "GNU strip is required."
-    echo "Hint: brew install binutils"
-    exit 100
-fi
+#if ! $STRIP --version | grep -q "GNU strip"
+#then
+#    echo "GNU strip is required."
+#    echo "Hint: brew install binutils"
+#    exit 100
+#fi
 
 set -x
 

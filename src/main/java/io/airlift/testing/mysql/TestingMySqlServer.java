@@ -22,6 +22,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Set;
+import java.util.TimeZone;
 
 import static java.lang.String.format;
 import static java.util.Objects.requireNonNull;
@@ -117,6 +118,6 @@ public final class TestingMySqlServer
 
     public String getJdbcUrl(String database)
     {
-        return format("jdbc:mysql://localhost:%s/%s?user=%s&password=%s&useSSL=false&allowPublicKeyRetrieval=true", port, database, user, password);
+        return format("jdbc:mysql://localhost:%s/%s?user=%s&password=%s&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=" + TimeZone.getDefault().getID(), port, database, user, password);
     }
 }
